@@ -20,6 +20,10 @@ app.use(express.json());     //middleware to get or access json data
 app.use("/api/v1/task",taskRouter);    //make sure 
 app.use("/api/v1/users",userRouter);
 
+app.get("/",(req,res)=>{
+    res.send("working");
+});
+
 app.use(errorMiddleware);     //using error middleware 
 app.use(cors({                  //since frontend and backend has different url cors is the middleware by which they go along 
 origin:[process.env.FRONTEND_URL],
