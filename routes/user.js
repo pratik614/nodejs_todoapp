@@ -1,13 +1,10 @@
 import express from "express";
-import {getAllusers, register, login, getMyprofile, logout } from "../controller/user.js";
+import { register, login, getMyprofile, logout } from "../controller/user.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
 
 const router = express.Router();
 
-router.get("/",(req,res)=>{
-    res.send("working");
-});
 
 
 

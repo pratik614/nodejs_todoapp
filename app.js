@@ -12,7 +12,11 @@ app.use(cookieParser());
 config({
     path:"./data/config.env",
 });
-
+app.use(cors({                  //since frontend and backend has different url cors is the middleware by which they go along 
+    origin:[process.env.FRONTEND_URL],
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true                    //send cookies to the frontend when true
+    }));     
 app.use(express.json());     //middleware to get or access json data 
 
 
@@ -25,11 +29,7 @@ app.get("/",(req,res)=>{
 });
 
 app.use(errorMiddleware);     //using error middleware 
-app.use(cors({                  //since frontend and backend has different url cors is the middleware by which they go along 
-origin:[process.env.FRONTEND_URL],
-methods:["GET","POST","PUT","DELETE"],
-credentials:true                    //send cookies to the frontend when true
-}));            
+       
 export default app;
 
   
