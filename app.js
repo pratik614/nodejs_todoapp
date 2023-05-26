@@ -13,7 +13,7 @@ config({
     path: "./data/config.env",
 });
 app.use(cors({                  //since frontend and backend has different url cors is the middleware by which they go along 
-    origin: [process.env.FRONTEND_URL],
+    origin: [FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true                    //send cookies to the frontend when true
 }));
